@@ -10,11 +10,12 @@ export const fetchCoursesSuccess = (courses) => ({
 
 export const fetchCourses = () => {
   return async (dispatch, getState) => {
-    const coursesCount = getState().courses.length;
+    // const coursesCount = getState().courses.length;
     const response = await axios.get(
-      `${apiUrl}/courses?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${coursesCount}`
+      `${apiUrl}/courses`
     );
+    console.log('WHAT DO I GET HERE', response)
 
-    dispatch(fetchCoursesSuccess(response.data.course.rows));
+    dispatch(fetchCoursesSuccess(response.data));
   };
 };

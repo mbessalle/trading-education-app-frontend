@@ -1,4 +1,4 @@
-import { FETCH_COURSES_SUCCESS, CREATE_COURSES_SUCCESS } from "./actions";
+import { FETCH_COURSES_SUCCESS } from "./actions";
 //import { COURSE_UPDATED } from "../user/actions";
 
 const initialState = [];
@@ -11,8 +11,6 @@ export default (state = initialState, action) => {
       console.log([...state, ...action.payload]);
       return [...state, ...action.payload];
 
-    case CREATE_COURSES_SUCCESS:
-      return { ...state };
     default:
       return state;
   }
