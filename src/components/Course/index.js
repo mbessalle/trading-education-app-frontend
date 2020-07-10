@@ -1,20 +1,19 @@
 import React from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import Image from "react-bootstrap/Image";
+
+
 
 export default function Course(props) {
-  // const { title, imageUrl, bids } = props.artwork;
   return (
     <Jumbotron>
       <h1>{props.name}</h1>
       <p>{props.description}</p>
-      <Image src={props.videoURL} />
+      <p>Price: {props.price} BTC</p>
       {props.showLink ? (
-        <Link to={`/courses/${props.userId}`}>
-          <Button>View details</Button>
-        </Link>
+        <a href={props.showLink}>
+          <Button>Go To Video</Button>
+        </a>
       ) : null}
     </Jumbotron>
   );
