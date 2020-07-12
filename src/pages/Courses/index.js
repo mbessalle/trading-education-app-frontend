@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import { fetchCourses } from "../../store/courses/actions";
-import { selectCourses } from "../../store/courses/selectors";
+import { selectCourses } from "../../store/courses/selector";
 import Course from "../../components/Course";
 import UserDock from "../../components/UserDock";
 import Chart from "../../components/Chart";
