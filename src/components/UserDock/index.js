@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 
 export default function Dock() {
-  const token = localStorage.getItem("JWT");
+  const token = localStorage.getItem("token");
   console.log();
   return (
     <>
@@ -10,7 +10,7 @@ export default function Dock() {
       <a href="http://localhost:3000/">
         <Button
           onClick={() => {
-            localStorage.removeItem("JWT");
+            localStorage.removeItem("token");
           }}
         >
           Log out

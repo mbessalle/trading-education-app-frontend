@@ -10,11 +10,12 @@ export const fetchCoursesSuccess = (courses) => ({
 
 export const fetchCourses = () => {
   return async (dispatch, getState) => {
-    // const coursesCount = getState().courses.length;
-    const response = await axios.get(
-      `${apiUrl}/courses`
-    );
-    console.log('WHAT DO I GET HERE', response)
+    const coursesCount = getState().courses.length;
+    if (coursesCount !== 0) {
+      return;
+    }
+    const response = await axios.get(`${apiUrl}/courses`);
+    console.log("WHAT DO I GET HERE", response);
 
     dispatch(fetchCoursesSuccess(response.data));
   };

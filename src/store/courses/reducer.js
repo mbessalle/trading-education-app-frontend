@@ -9,6 +9,9 @@ export default (state = initialState, action) => {
     case FETCH_COURSES_SUCCESS:
       console.log("state", state, "action", action);
       console.log([...state, ...action.payload]);
+      if (state.length !== 0) {
+        return state;
+      }
       return [...state, ...action.payload];
 
     default:

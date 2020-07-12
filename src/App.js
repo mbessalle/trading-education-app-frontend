@@ -4,11 +4,11 @@ import Courses from "./pages/Courses";
 import { Switch, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import UserDock from "./components/UserDock";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Trading App</h1>
       <Switch>
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={SignUp} />
