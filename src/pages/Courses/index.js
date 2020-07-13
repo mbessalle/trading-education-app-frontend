@@ -14,6 +14,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { apiUrl } from "../../config/constants";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -43,19 +44,16 @@ export default function Home() {
   return (
     <>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Trading App</Navbar.Brand>
+        <Navbar.Brand href="http://localhost:3000">Trading App</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <Nav.Link href="http://localhost:3000">Home</Nav.Link>
+          <Nav.Link href="#trades">Trades</Nav.Link>
+          <Nav.Link href="#courses">Courses</Nav.Link>
         </Nav>
-        <Link to='/login'>
-          <Button variant="outline-info">Log In</Button>
-        </Link>
-      </Navbar>
-      <Jumbotron>
         <UserDock />
-        <h1>courses</h1>
+      </Navbar>
+      <Jumbotron style={{backgroundColor:'black'}}>
+        <h1 style={{color:'white'}}>The complete set of trading knowledge you will need in 4 videos</h1>
       </Jumbotron>
       <Container>
         <CardDeck>{coursesJSX}</CardDeck>

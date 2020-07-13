@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor:"#aaa"}}>
       <Switch>
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
