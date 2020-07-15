@@ -32,9 +32,9 @@ export default function Dock() {
           </Button>
         </Link>
       ) : (
-        <Link to="/login" style={{ padding: "0.6rem" }}>
+        <a href="/login" style={{ padding: "0.6rem" }} replace>
           <Button variant="outline-info">Log In</Button>
-        </Link>
+        </a>
       )}
     </div>
   );
