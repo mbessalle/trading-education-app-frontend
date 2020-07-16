@@ -4,19 +4,11 @@ import { Link } from "react-router-dom";
 import { selectToken, selectUsername } from "../../store/user/selector";
 import { getUserWithStoredToken, logOut } from "../../store/user/action";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 
 export default function Dock() {
   const dispatch = useDispatch();
   const username = useSelector(selectUsername);
   const token = useSelector(selectToken);
-  const history = useHistory();
-
-  useEffect(() => {
-    if (token !== null) {
-      history.push("/");
-    }
-  }, [token, history]);
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
