@@ -43,15 +43,6 @@ export default function Home() {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="http://localhost:3000">Trading App</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="http://localhost:3000">Home</Nav.Link>
-          <Nav.Link href="#trades">Trades</Nav.Link>
-          <Nav.Link href="#courses">Courses</Nav.Link>
-        </Nav>
-        <UserDock />
-      </Navbar>
       <Jumbotron style={{backgroundColor:'black'}}>
         <h1 style={{color:'white'}}>The complete set of trading knowledge you will need in 4 videos</h1>
       </Jumbotron>
