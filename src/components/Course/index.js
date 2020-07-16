@@ -2,7 +2,6 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-
 export default function Course(props) {
   return (
     <Card
@@ -19,8 +18,10 @@ export default function Course(props) {
           on the video for further details.
         </Card.Text>
         {props.showLink ? (
-          <Card.Link style={{ marginTop: "auto" }} href={props.showLink}>
-            <Button type="primary">Go To Video</Button>
+          <Card.Link style={{ marginTop: "auto" }}>
+            <a href={`/course/${props.id}`}>
+              <Button type="primary">View more</Button>
+            </a>
           </Card.Link>
         ) : null}
       </Card.Body>
