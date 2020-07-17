@@ -15,6 +15,7 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { apiUrl } from "../../config/constants";
+import Badge from "react-bootstrap/Badge";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -43,12 +44,31 @@ export default function Home() {
 
   return (
     <>
-      <Jumbotron style={{backgroundColor:'black'}}>
-        <h1 style={{color:'white'}}>The complete set of trading knowledge you will need in 4 videos</h1>
+      <Jumbotron style={{ backgroundColor: "black" }}>
+        <h1 style={{ color: "white", textAlign: "center" }}>
+          Welcome to Mois's trading education web application!
+        </h1>
+        <h2 style={{ color: "white", textAlign: "center" }}>
+          Here, you will find links to purchase educational videos to learn how
+          to trade.
+        </h2>
+        <h2 style={{ color: "white", textAlign: "center" }}>
+          Also, if you sign up, you will get access to our interactive trading
+          simulation platform to test out your strategies!
+        </h2>
       </Jumbotron>
       <Container>
-        <CardDeck>{coursesJSX}</CardDeck>
+        <CardDeck style={{ margin: "auto", paddingBottom: "2rem" }}>
+          {coursesJSX}
+        </CardDeck>
       </Container>
+      <Badge
+        pill
+        variant="warning"
+        style={{ fontSize: "1.5rem", margin: "auto", textAlign: "center" }}
+      >
+        BTC/USD crypto chart
+      </Badge>{" "}
       <Chart />
     </>
   );
