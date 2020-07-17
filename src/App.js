@@ -16,9 +16,9 @@ import { selectToken } from "./store/user/selector";
 function App() {
   const token = useSelector(selectToken);
   return (
-    <div className="App" style={{ backgroundColor: "#aaa" }}>
+    <div className="App">
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/">Trading App</Navbar.Brand>
+        <Navbar.Brand href="/">Mois's Trading App</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
           {token ? <Nav.Link href="/trades">Trades</Nav.Link> : null}

@@ -42,6 +42,7 @@ export default function CourseDetails() {
               maxWidth: "1000px",
               margin: "auto",
               paddingTop: "2.5rem",
+              textAlign:'justify',
             }}
           >
             {course.description}
