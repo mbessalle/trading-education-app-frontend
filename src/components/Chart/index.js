@@ -5,10 +5,17 @@ import axios from "axios";
 
 export default () => {
   useEffect(loadChart, []);
+
   return (
     <>
       <div
-        style={{ width: 600, margin: "auto", padding: "2rem" }}
+        style={{
+          width: 1000,
+          margin: "auto",
+          padding: "2rem",
+          position: "relative",
+          right: "2.5rem",
+        }}
         id="tradingview-chart"
       ></div>
     </>
@@ -18,8 +25,8 @@ export default () => {
 const loadChart = async () => {
   const response = await axios.get(`${apiUrl}/data`);
   const chart = createChart("tradingview-chart", {
-    width: 600,
-    height: 300,
+    width: 1000,
+    height: 500,
     layout: {
       backgroundColor: "#000000",
       textColor: "rgba(255, 255, 255, 0.9)",
@@ -39,6 +46,7 @@ const loadChart = async () => {
       borderColor: "rgba(197, 203, 206, 0.8)",
     },
     timeScale: {
+      autoScale: true,
       borderColor: "rgba(197, 203, 206, 0.8)",
     },
   });

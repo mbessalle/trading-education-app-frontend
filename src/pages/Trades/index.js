@@ -3,6 +3,7 @@ import { selectToken } from "../../store/user/selector";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
+import Chart from "../../components/Chart";
 
 export default function Trades() {
   const token = useSelector(selectToken);
@@ -15,5 +16,10 @@ export default function Trades() {
     }
   }, [token, history]);
 
-  return <h1>Trades</h1>;
+  return (
+    <>
+      <h1>Trades</h1>
+      <Chart />
+    </>
+  );
 }
