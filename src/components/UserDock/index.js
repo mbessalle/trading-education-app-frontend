@@ -28,6 +28,10 @@ export default function Dock() {
           <Button variant="outline-info">Log In</Button>
         </a>
       )}
+      <a href="/signUp">
+        {!token ? <Button variant="success">SIGN UP NOW!</Button>:null}
+      </a>
     </div>
   );
 }
+// {token ? <Nav.Link href="/trades">Trades</Nav.Link> : null}
