@@ -3,8 +3,8 @@ import { createChart, CrosshairMode } from "lightweight-charts";
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
 
-export default () => {
-  useEffect(loadChart, []);
+export default (props) => {
+  useEffect(loadChart.bind(null, props.setPrice), []);
 
   return (
     <>
@@ -22,7 +22,7 @@ export default () => {
   );
 };
 
-const loadChart = async () => {
+const loadChart = async (setPrice) => {
   const response = await axios.get(`${apiUrl}/data`);
   const chart = createChart("tradingview-chart", {
     width: 1000,
@@ -96,16 +96,18 @@ const loadChart = async () => {
 
   const data = response.data;
   candleSeries.setData(data);
-  // chart.timeScale().scrollPosition(2, true);
   chart.timeScale().setVisibleLogicalRange({
     from: data.length - 20,
     to: data.length - 1,
   });
 
-  setInterval(refreshChartData, 8000, chart, candleSeries);
+  if (setPrice) {
+    setPrice(data[data.length - 1].close);
+  }
+  setInterval(refreshChartData, 8000, chart, candleSeries, setPrice);
 };
 
-const refreshChartData = async (chart, candleSeries) => {
+const refreshChartData = async (chart, candleSeries, setPrice) => {
   const response = await axios.get(`${apiUrl}/data`);
   const data = response.data;
 
@@ -114,4 +116,8 @@ const refreshChartData = async (chart, candleSeries) => {
     from: data.length - 20,
     to: data.length - 1,
   });
+
+  if (setPrice) {
+    setPrice(data[data.length - 1].close);
+  }
 };
