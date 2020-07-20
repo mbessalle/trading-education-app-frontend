@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useReducer } from "react";
 import { selectToken } from "../../store/user/selector";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -7,12 +7,15 @@ import Chart from "../../components/Chart";
 import { Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Badge from "react-bootstrap/Badge";
+import axios from "axios";
+import { apiUrl } from "../../config/constants";
 
 export default function Trades() {
   const token = useSelector(selectToken);
   const history = useHistory();
   console.log("token in /trades", token);
   const [price, setPrice] = useState(0);
+  const [trades, setTrades] = useState("[]");
   const previousPrice = usePrevious(price);
   const priceColor = previousPrice
     ? price - previousPrice > 0
@@ -25,6 +28,32 @@ export default function Trades() {
       history.push("/");
     }
   }, [token, history]);
+
+  const fetchData = () => {
+    axios
+      .get(`${apiUrl}/tradeData/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        setTrades(JSON.stringify(response.data));
+      });
+  };
+
+  useEffect(fetchData, []);
+
+  async function TradeHandler(type) {
+    const trade = await axios.post(
+      `${apiUrl}/tradeData/`,
+      { type, price },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    console.log(trade.data);
+    const tradeData = JSON.parse(trades);
+    tradeData.push(trade.data);
+    setTrades(JSON.stringify(tradeData));
+  }
 
   return (
     <>
@@ -42,10 +71,18 @@ export default function Trades() {
         {" "}
         Current price: <span style={{ color: priceColor }}>{`${price}$`}</span>
       </p>
-      <Button style={{ margin: "1rem" }} variant="outline-success">
+      <Button
+        style={{ margin: "1rem" }}
+        variant="outline-success"
+        onClick={() => TradeHandler("BUY")}
+      >
         Buy BTC
       </Button>
-      <Button style={{ margin: "auto" }} variant="outline-danger">
+      <Button
+        style={{ margin: "auto" }}
+        variant="outline-danger"
+        onClick={() => TradeHandler("SELL")}
+      >
         Sell BTC
       </Button>
       <Table
@@ -57,9 +94,7 @@ export default function Trades() {
       >
         <thead>
           <tr>
-            <th>#</th>
             <th>Execution time</th>
-            <th>Trade</th>
             <th>Trade type</th>
             <th>P/L</th>
             <th>BTC amount</th>
@@ -67,32 +102,15 @@ export default function Trades() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-          </tr>
+          {JSON.parse(trades).map((trade) => (
+            <tr key={trade.id}>
+              <td>{trade.executionTime}</td>
+              <td>{trade.USDamount > 0 ? "SELL" : "BUY"}</td>
+              <td>0</td>
+              <td>{trade.BTCamount}</td>
+              <td>{trade.USDamount}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </>
