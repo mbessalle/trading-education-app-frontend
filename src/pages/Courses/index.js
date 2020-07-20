@@ -5,16 +5,8 @@ import Container from "react-bootstrap/Container";
 import { fetchCourses } from "../../store/courses/actions";
 import { selectCourses } from "../../store/courses/selector";
 import Course from "../../components/Course";
-import UserDock from "../../components/UserDock";
 import Chart from "../../components/Chart";
 import { CardDeck } from "react-bootstrap";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { apiUrl } from "../../config/constants";
 import Badge from "react-bootstrap/Badge";
 
 export default function Home() {
