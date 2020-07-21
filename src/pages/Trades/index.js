@@ -1,5 +1,5 @@
-import React, { useState, useRef, useReducer } from "react";
-import { selectToken } from "../../store/user/selector";
+import React, { useState, useRef } from "react";
+import { selectToken, selectUser } from "../../store/user/selector";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
@@ -12,6 +12,7 @@ import { apiUrl } from "../../config/constants";
 
 export default function Trades() {
   const token = useSelector(selectToken);
+  const user = useSelector(selectUser);
   const history = useHistory();
   console.log("token in /trades", token);
   const [price, setPrice] = useState(0);
@@ -35,13 +36,13 @@ export default function Trades() {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        setTrades(JSON.stringify(response.data));
+        setTrades(JSON.stringify(tradePL(response.data)));
       });
   };
 
   useEffect(fetchData, []);
 
-  async function TradeHandler(type) {
+  async function tradeHandler(type) {
     const trade = await axios.post(
       `${apiUrl}/tradeData/`,
       { type, price },
@@ -52,7 +53,19 @@ export default function Trades() {
     console.log(trade.data);
     const tradeData = JSON.parse(trades);
     tradeData.push(trade.data);
-    setTrades(JSON.stringify(tradeData));
+    setTrades(JSON.stringify(tradePL(tradeData)));
+  }
+
+  function tradePL(trades) {
+    return trades.map((trade, index) => {
+      if (trade.BTCamount > 0) {
+        return { ...trade, PL: "-" };
+      } else {
+        let pl = trade.USDamount / Math.abs(trades[index - 1].USDamount);
+        pl = (pl - 1) * 100;
+        return { ...trade, PL: pl.toFixed(2) + "%" };
+      }
+    });
   }
 
   return (
@@ -66,7 +79,10 @@ export default function Trades() {
         BTC/USD crypto chart
       </Badge>{" "}
       <Chart setPrice={setPrice} />
-      <p>Current balance:</p>
+      <h2>
+        Current balance:{" "}
+        {(user.USDbalance + user.BTCbalance * price).toFixed(2)}$
+      </h2>
       <p style={{ fontSize: "1.5rem" }}>
         {" "}
         Current price: <span style={{ color: priceColor }}>{`${price}$`}</span>
@@ -74,14 +90,14 @@ export default function Trades() {
       <Button
         style={{ margin: "1rem" }}
         variant="outline-success"
-        onClick={() => TradeHandler("BUY")}
+        onClick={() => tradeHandler("BUY")}
       >
         Buy BTC
       </Button>
       <Button
         style={{ margin: "auto" }}
         variant="outline-danger"
-        onClick={() => TradeHandler("SELL")}
+        onClick={() => tradeHandler("SELL")}
       >
         Sell BTC
       </Button>
@@ -102,15 +118,17 @@ export default function Trades() {
           </tr>
         </thead>
         <tbody>
-          {JSON.parse(trades).map((trade) => (
-            <tr key={trade.id}>
-              <td>{trade.executionTime}</td>
-              <td>{trade.USDamount > 0 ? "SELL" : "BUY"}</td>
-              <td>0</td>
-              <td>{trade.BTCamount}</td>
-              <td>{trade.USDamount}</td>
-            </tr>
-          ))}
+          {JSON.parse(trades)
+            .reverse()
+            .map((trade) => (
+              <tr key={trade.id}>
+                <td>{new Date(trade.executionTime).toUTCString()}</td>
+                <td>{trade.USDamount > 0 ? "SELL" : "BUY"}</td>
+                <td>{trade.PL}</td>
+                <td>{trade.BTCamount.toFixed(5)}</td>
+                <td>{trade.USDamount.toFixed(2)}</td>
+              </tr>
+            ))}
         </tbody>
       </Table>
     </>
