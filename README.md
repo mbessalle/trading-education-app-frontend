@@ -1,6 +1,6 @@
 Mois's Trading education web app
 
-## Available Scripts
+# Introduction
 
 In the project directory, you can run:
 
