@@ -46,4 +46,7 @@ The main goal of this project is to combine my passion for Fintech,trading and w
 
 The user stories that I used for the planning of my app you can find: [here](https://github.com/mbessalle/trading-education-app-backend/projects/1)
 
-
+**Wireframe**
+![Homepage](https://github.com/corinabejan/bookstore-client/blob/master/images/wireframe1.jpg)
+![courses](https://github.com/corinabejan/bookstore-client/blob/master/images/wireframe2.jpg)
+![Trades](https://github.com/corinabejan/bookstore-client/blob/master/images/wireframe3.jpg)
