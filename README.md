@@ -49,7 +49,7 @@ The user stories that I used for the planning of my app you can find: [here](htt
 **Wireframe**
 ![Homepage](https://github.com/mbessalle/trading-education-app-frontend/blob/master/images/Screenshot%20from%202020-06-30%2015-32-40.png)
 ![courses](https://github.com/mbessalle/trading-education-app-frontend/blob/master/images/Screenshot%20from%202020-06-30%2015-34-47.png)
-![Trades](https://github.com/mbessalle/trading-education-app-frontend/blob/master/images/Screenshot%20from%202020-06-30%2015-34-47.png)
+![Trades](https://github.com/mbessalle/trading-education-app-frontend/blob/master/images/Screenshot%20from%202020-06-30%2015-34-53.png)
 
 ## Interface
 
