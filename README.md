@@ -49,4 +49,13 @@ The user stories that I used for the planning of my app you can find: [here](htt
 **Wireframe**
 ![Homepage](https://github.com/mbessalle/trading-education-app-frontend/blob/master/images/Screenshot%20from%202020-06-30%2015-32-40.png)
 ![courses](https://github.com/mbessalle/trading-education-app-frontend/blob/master/images/Screenshot%20from%202020-06-30%2015-34-47.png)
-![Trades]()
+![Trades](https://github.com/mbessalle/trading-education-app-frontend/blob/master/images/Screenshot%20from%202020-06-30%2015-34-47.png)
+
+## Interface
+
+For the interface I used a simple bootstrap layout, an easy to use chart with a history table to buy and sell bitcoin for USD so the user can experience what it would be like if he traded in the simplest way possible. The bootstrap and the CSS that I used were made for the user experience to nicer on the eyes and minimalistic.
+
+
+## Audience
+
+The audience targeted with this app are people who are interested in learning how to trade financial markets and want to see how they would do if they were trading a volatile (hence worth trading) financial asset.
