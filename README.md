@@ -1,6 +1,6 @@
-Mois's Trading education web app
+**Mois's Trading education web app**
 
-# Introduction
+**Introduction
 
 In the project directory, you can run:
 
