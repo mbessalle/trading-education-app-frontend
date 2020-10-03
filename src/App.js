@@ -13,7 +13,7 @@ import Trades from "./pages/Trades";
 import { useSelector } from "react-redux";
 import { selectToken } from "./store/user/selector";
 import { Image } from "react-bootstrap";
-import logo from "./assets/main_logo.png";
+import logo from "./assets/logo_turtle_transparent.png";
 
 function App() {
   const token = useSelector(selectToken);
@@ -45,15 +45,6 @@ function App() {
         <Route path="/" component={Courses} />
       </Switch>
       <div style={{margin:'auto', paddingTop:'1.5rem'}}>
-        Logo made by{" "}
-        <a href="https://www.flaticon.com/authors/itim2101" title="itim2101">
-          itim2101
-        </a>{" "}
-        from{" "}
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          {" "}
-          www.flaticon.com
-        </a>
       </div>
     </div>
   );
