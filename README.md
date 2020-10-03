@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Mois's Trading education web app**
 
-## Available Scripts
+**Introduction**
+Mois's trading education web application is website that carefully selected 4 videos to purchase that can teach you everything you need in order to begin a professional trading career. On top of that, once you register, you can access a trading simulator to buy and sell bitcoin with USD which calculates your profit/loss ratio and overall balance to test your trading strategies.
 
-In the project directory, you can run:
+**Table of Contents**
 
-### `npm start`
+- [App Demo](#app-demo)
+- [Backend repository](#backend-repository)
+- [Used Technologies](#used-technologies)
+- [Goals For This Project](#goals-for-this-project)
+- [User Stories](#user-stories)
+- [Interface](#interface)
+- [Audience](#audience)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## App Demo
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You can see a working version of the app : [here](https://cranky-shaw-d34540.netlify.app/)
 
-### `npm test`
+## Backend repository
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The backend repository for this app you can find it: [here](https://github.com/mbessalle/trading-education-app-backend)
 
-### `npm run build`
+## Used Technologies
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- Redux
+- React Bootstrap
+- Axios
+- Express
+- Nodejs
+- Sequelize
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Goals For This Project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The main goal of this project is to combine my passion for Fintech,trading and web development with showcasing what I have learned during bootcamp at [Codaisseur](https://codaisseur.com/):
+ - Creating a React app
+ - Proper error handling
+ - Using GitHub
+ - Using libraries and API's
+ - Live data fetching & rendering
+ - Showcasing my programming skills
+ - Practicing new knowledge
 
-### `npm run eject`
+## User Stories
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The user stories that I used for the planning of my app you can find: [here](https://github.com/mbessalle/trading-education-app-backend/projects/1)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Wireframe**
+![Homepage](https://github.com/mbessalle/trading-education-app-frontend/blob/master/images/Screenshot%20from%202020-06-30%2015-32-40.png)
+![courses](https://github.com/mbessalle/trading-education-app-frontend/blob/master/images/Screenshot%20from%202020-06-30%2015-34-47.png)
+![Trades](https://github.com/mbessalle/trading-education-app-frontend/blob/master/images/Screenshot%20from%202020-06-30%2015-34-53.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Interface
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+For the interface I used a simple bootstrap layout, an easy to use chart with a history table to buy and sell bitcoin for USD so the user can experience what it would be like if he traded in the simplest way possible. The bootstrap and the CSS that I used were made for the user experience to nicer on the eyes and minimalistic.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Audience
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The audience targeted with this app are people who are interested in learning how to trade financial markets and want to see how they would do if they were trading a volatile (hence worth trading) financial asset.
